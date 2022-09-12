@@ -21,7 +21,7 @@ const App = () => {
       .map((transaction) => Number(transaction.amount));
 
     const amountInCome = transactionList
-      .filter((item) => item.expense)
+      .filter((item) => !item.expense)
       .map((transaction) => Number(transaction.amount));
 
     const expense = amountExpense.reduce((acc, cur) => acc + cur, 0).toFixed(2);
