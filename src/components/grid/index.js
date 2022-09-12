@@ -1,17 +1,29 @@
 import React from "react";
-import { Container } from "../form/styles";
+import GridItem from "../gridItem";
 import * as C from "./styles";
 
-const Grid = () => {
+const Grid = ({ items, setItems }) => {
+  const onDelete = (ID) => {
+    const newArray = items.filter((transaction) => transaction.id !== ID);
+    setItems(newArray);
+    localStorage.removeItem.setItem("transaction", JSON.stringify(newArray));
+  };
+
   return (
     <C.Table>
       <C.Thead>
-        <C.Tr width={40}>Description</C.Tr>
-        <C.Tr width={40}>Value</C.Tr>
-        <C.Tr width={10} align="center">
+        <C.Th width={40}>Description</C.Th>
+        <C.Th width={40}>Value</C.Th>
+        <C.Th width={10} alignCenter>
           Type
-        </C.Tr>
+        </C.Th>
+        <C.Th width={10}></C.Th>
       </C.Thead>
+      <C.Tbody>
+        {items?.map((item, index) => (
+          <GridItem key={index} item={item} onDelete={onDelete} />
+        ))}
+      </C.Tbody>
     </C.Table>
   );
 };

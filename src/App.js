@@ -29,9 +29,9 @@ const App = () => {
 
     const total = Math.abs(inCome - expense).toFixed(2);
 
-    setInCome(`R$ ${inCome}`);
-    setExpense(`R$ ${expense}`);
-    setTotal(`${Number(inCome) < Number(expense) ? "-" : ""}R$ ${total}`);
+    setInCome(`$ ${inCome}`);
+    setExpense(`$ ${expense}`);
+    setTotal(`${Number(inCome) < Number(expense) ? "-" : ""}$ ${total}`);
   }, [transactionList]);
 
   const handleAdd = (transaction) => {
@@ -44,7 +44,11 @@ const App = () => {
     <>
       <Header />
       <Resume inCome={inCome} expense={expense} total={total} />
-      <Form handleAdd={handleAdd} />
+      <Form
+        handleAdd={handleAdd}
+        transactionList={transactionList}
+        setTransactionList={setTransactionList}
+      />
       <GlobalStyle />
     </>
   );

@@ -11,11 +11,19 @@ export const Container = styled.div`
   justify-content: space-around;
   padding: 15px 0px;
   gap: 10px;
+  @media (max-width: 817px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 export const InputContent = styled.div`
   display: flex;
   flex-direction: column;
+  @media only screen and (max-width: 817px) {
+    width: 70%;
+  }
 `;
 
 export const Label = styled.label``;
@@ -36,6 +44,9 @@ export const RadioGroup = styled.div`
     margin-left: 20px;
     accent-color: black;
     margin-top: 0;
+    @media (max-width: 817px) {
+      margin: 5px;
+    }
   }
 `;
 
@@ -46,4 +57,7 @@ export const Button = styled.button`
   cursor: pointer;
   color: white;
   background-color: teal;
+  @media (max-width: 817px) {
+    width: 70%;
+  }
 `;
